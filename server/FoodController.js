@@ -19,6 +19,8 @@ FoodController.getFood = (req, res, next) => {
 
 FoodController.addFood = (req, res, next) => {
   const { item } = req.body;
+
+  console.log('Item received: ', item);
   // , type, quantity, date, price, expiration, status, preference, outcome
   models.Food.create({
     item,
@@ -33,6 +35,7 @@ FoodController.addFood = (req, res, next) => {
   })
     .then((data) => {
       res.locals.food = data;
+      console.log('Create successful');
       // console.log(res.locals.food);
       return next();
     })
@@ -40,15 +43,30 @@ FoodController.addFood = (req, res, next) => {
       next({
         log: `FoodController.addFood: ERROR: ${err}`,
         message: {
-          err: 'Error opccurred in FoodController.addFood. Check server logs for more details.',
+          err: 'Error opccurred in FoodController.addFood. Check server logs for more details.', 
         },
       })
     );
 };
 
 FoodController.deleteFood = (req, res, next) => {
+  console.log('Req params: ', req.params);
   // gets all info/data from the one food item
-  models.Food.deleteOne({ item: req.params.item }).catch((err) =>
+  models.Food.deleteOne({ item: req.params.item })
+    .then((res) => {
+      console.log('deleteOne resulting object: ', res);
+      if (res.deletedCount === 0) {
+        next({
+          log: `Food.deleteFood: ERROR`,
+          message: {
+            err: 'Error occurred in Food.deleteFood. Check server logs for more details.',
+          },
+        });
+      } else {
+        next();
+      }
+    })
+    .catch((err) =>
     next({
       log: `Food.deleteFood: ERROR: ${err}`,
       message: {
@@ -60,7 +78,18 @@ FoodController.deleteFood = (req, res, next) => {
 
 // update item name with user input
 FoodController.updateFoodName = (req, res, next) => {
-  models.Food.findOneAndUpdate({ item: req.params.item }).catch((err) =>
+  models.Food.updateOne({ item: req.params.item },
+    { $set: { item: req.body.item } })
+  .then((res) => {
+    console.log('Update result: ', res);
+    res.n ? next() : next({
+      log: `Food.updateFoodName: ERROR OVER HERE`,
+      message: {
+        err: 'Error occurred in Food.updateFoodName. Check server logs for more details.',
+      },
+    });
+  })
+  .catch((err) =>
     next({
       log: `Food.updateFoodName: ERROR: ${err}`,
       message: {
