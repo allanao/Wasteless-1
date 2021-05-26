@@ -81,11 +81,11 @@ function CurrentList() {
 		});
 
 		setState((prevState) => {
-			const itemNamesSlice = prevState.listOfItemNames.slice();
+			const newListOfItemNames = [...prevState.listOfItemNames];
+			const index = newListOfItemNames.indexOf(itemName);
+			newListOfItemNames.splice(index, 1);
 
-			const filtered = itemNamesSlice.filter((value) => value !== itemName);
-
-			return { ...prevState, listOfItemNames: filtered };
+			return { ...prevState, listOfItemNames: newListOfItemNames };
 		});
 	}
 
