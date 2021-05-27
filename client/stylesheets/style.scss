@@ -1,25 +1,27 @@
+@import "./variables";
+
 * {
   margin:0;
   padding:0;
   box-sizing: border-box;
   font-family: Helvetica, sans-serif;
-  color: #222725;
+  color: $tertiary;
 }
 
 h1, h3 {
   text-align: center;
-  color: #121113;
+  color: $tertiary;
 
 }
 
 h1 {
   font-size: 60px;
-  color: #F7F7F2;
+  color: $tertiary;
 }
 
 body {
   width: 100%;
-  background-color: #a5a58d;
+  background-color: $primary;
 }
 
 .App {
@@ -28,9 +30,9 @@ body {
 }
 
 .nav {
-  display:flex;
+  display: flex;
   flex-direction: column;
-  width:25%;
+  width: 25%;
   border: #6b705c 2px solid;
   border-radius: 10px;
   border-color: #F7F7F2;
@@ -43,6 +45,7 @@ body {
   flex-direction: column;
   border: #6b705c 2px solid;
   border-radius: 10px;
+  // border-color: $secondary;
   border-color: #F7F7F2;
   width: 70%;
   padding: 10px;
@@ -55,7 +58,8 @@ body {
   border-radius: 10px;
   padding: 14px 25px;
   text-align: center;
-  background-color: #fefae0;
+  // background-color: #fefae0;
+  background-color: $secondary;
   color: black;
   margin: 5px;
   box-shadow:5px 5px 10px #222725;
@@ -79,7 +83,7 @@ body {
   grid-template-columns: 3fr 1fr;
 }
 .addItemBtn {
-  background-color: #b7b7a4;
+  background-color: $brown;
   border: none;
   padding: 10px;
   text-align: center;
@@ -94,8 +98,8 @@ body {
 }
 
 .addItemBtn:hover{
-  background-color: #a4a994;
-
+  background-color: $orange;
+  color: black;
 }
 .addItemBtn:active{
   background-color: #6b705c;
@@ -107,7 +111,7 @@ body {
   margin: 4px 2px;
   padding: 10px;
   border-radius: 10px;
-  box-shadow:5px 5px 10px #222725;
+  box-shadow: 5px 5px 10px #222725;
 }
 
 
@@ -117,7 +121,7 @@ body {
 
 .ItemComponent {
   border: solid black 1px;
-  background-color: #fefae0;
+  background-color: $secondary;
   border-radius: 10px;
   padding: 10px 15px;
   text-align: center;
