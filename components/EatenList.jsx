@@ -6,6 +6,7 @@ function EatenList(props) {
 
   
   useEffect(() => {
+    console.log('')
     fetch('/api/eaten')
       .then((items) => {
         const data = items.json();
