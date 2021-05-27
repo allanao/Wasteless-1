@@ -28,41 +28,47 @@ function EatenList(props) {
       });
   }, []);
 
-  // function updateLiked(itemName) {
-  //   fetch(`/api/food/eaten/liked/${itemName}`, {
-  //     method: 'PUT',
-  //     headers: { 'Content-Type': 'Application/JSON' },
-  //     body: JSON.stringify({ item: itemName }),
-  //   }).catch((err) => {
-  //     console.log(err);
-  //   });
 
-  //   setState((prevState) => {
-  //     const itemNamesSlice = prevState.listOfLikedItemNames?.slice();
-  
-  //       const filtered = itemNamesSlice?.filter((value) => value !== itemName);
-  
-  //       return { ...prevState, listOfLikedItemNames: filtered };
-  //   });
-  // }
+  function updateLiked(itemName) {
+    console.log('liked!');
+    fetch(`/api/food/eaten/liked/${itemName}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'Application/JSON' },
+      body: JSON.stringify({ item: itemName }),
+    }).catch((err) => {
+      console.log(err);
+    });
 
-  // function updateDisliked(itemName) {
-  //     fetch(`/api/food/eaten/disliked/${itemName}`, {
-  //       method: 'PUT',
-  //       headers: { 'Content-Type': 'Application/JSON' },
-  //       body: JSON.stringify({ item: itemName }),
-  //     }).catch((err) => {
-  //       console.log(err);
-  //     });
+    setState((prevState) => {
+      const itemNamesSlice = prevState.listOfLikedItemNames?.slice();
+      console.log('itemNames', itemNamesSlice);
+        const filtered = itemNamesSlice?.filter((value) => value !== itemName);
+        console.log('filtered', filtered);
+        console.log('list of liked items', currState.listOfLikedItemNames);
+        console.log('prevState', prevState);
+
+        return { ...prevState, listOfLikedItemNames: filtered };
+    });
+  }
+
+  function updateDisliked(itemName) {
+      fetch(`/api/food/eaten/disliked/${itemName}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'Application/JSON' },
+        body: JSON.stringify({ item: itemName }),
+      }).catch((err) => {
+        console.log(err);
+      });
   
-  //     setState((prevState) => {
-  //       const itemNamesSlice = prevState.listOfDislikedItemNames?.slice();
+      setState((prevState) => {
+        const itemNamesSlice = prevState.listOfDislikedItemNames?.slice();
   
-  //       const filtered = itemNamesSlice?.filter((value) => value !== itemName);
+        const filtered = itemNamesSlice?.filter((value) => value !== itemName);
   
-  //       return { ...prevState, listOfDislikedItemNames: filtered };
-  //     });
-  //   }
+        return { ...prevState, listOfDislikedItemNames: filtered };
+      });
+
+    }
     
     
   const eatenListArray = [];
@@ -74,8 +80,9 @@ function EatenList(props) {
         id={i + 1}
         foodId={currState?.listOfEatenItemNames[i]}
         setState={setState}
-        // updateLiked={updateLiked}
-        // updateDisliked={updateDisliked}
+        updateLiked={updateLiked}
+        updateDisliked={updateDisliked}
+        // need checkLikedStatus
       />
     );
   }

@@ -179,7 +179,7 @@ FoodController.updateLiked = (req, res, next) => {
 
 // find food with preference of liked
 FoodController.getLikedFood = (req, res, next) => {
-  models.Food.find({ preference: 'liked' })
+  models.Food.find({ preference: "liked" })
     .then((data) => {
       res.locals.liked = data;
       return next();
