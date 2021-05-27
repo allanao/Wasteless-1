@@ -20,6 +20,31 @@ function CurrentList() {
 
 	const [currState, setState] = useState(state);
 
+	// for updating the item name
+	const handleItemChange = (id, newItemName) => {
+		// setState listOfItemNames[id] = newItemName;
+		const oldItemName = currState.listOfItemNames[id];
+
+		fetch(`/api/food/${oldItemName}`, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				item: newItemName,
+			}),
+		})
+			.then((res) => res.json())
+			.then((data) => console.log('Response from PUT request: ', data));
+
+		setState((prev) => {
+			const newListOfItemNames = [...prev.listOfItemNames];
+			newListOfItemNames.splice(id, 1, newItemName);
+
+			return { ...prev, listOfItemNames: newListOfItemNames };
+		});
+	};
+
 	useEffect(() => {
 		fetch('/api/')
 			.then((items) => {
@@ -143,7 +168,8 @@ function CurrentList() {
 			<Item
 				itemName={currState.listOfItemNames[i]} // <-- user input string
 				key={i}
-				id={i + 1}
+				id={i}
+				onItemChange={handleItemChange}
 				foodId={currState.listOfItemNames[i]} // <-- mongo ID: 1298uvBAH8hjakskr$^%
 				currState={currState}
 				setState={setState}
