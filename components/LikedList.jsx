@@ -5,6 +5,8 @@ function LikedList(props) {
     //initial value goes into useState
     const [likedItems, setLikedItems] = useState([]);
 
+    console.log('likedItems: ', likedItems);
+
   useEffect(() => {
       // Response: An array who have --> preference: liked
     fetch(('/api/liked'))
@@ -13,10 +15,9 @@ function LikedList(props) {
           return data;
       })
       .then((data) => {
-          const returnedItems = []; // the whole item object
-          for (const el of data) {
-              returnedItems.push(el);
-          }
+        //   const returnedItems = data.body.likedItems;]
+        // console.log(data);
+          const returnedItems = data.likedItems;
           setLikedItems(returnedItems);
       })
   }, []);
@@ -24,7 +25,7 @@ function LikedList(props) {
   const likedListArray = [];
 
   for (let i = 0; i < likedItems.length; i++) {
-      likeListArra.push()
+      likedListArray.push(
           <LikedItem 
             itemName={likedItems[i]}
             key={i}
@@ -32,14 +33,14 @@ function LikedList(props) {
             foodId={likedItems[i]}
             setState={setLikedItems}
         />
-      ;
+      )
   }
 
   return (
     <div className="list">
         <h3>Liked List</h3>
         <div>
-          {likedListArray}
+            {likedListArray}
         </div>
     </div>
   );

@@ -55,7 +55,7 @@ router.put('/food/eaten/liked/:item', FoodController.updateLiked, (req, res) =>
 // LIKED LIST
 // get all liked items
 router.get('/liked', FoodController.getLikedFood, (req, res) => {
-  res.status(200).json(res.locals.liked);
+  res.status(200).json({likedItems: res.locals.liked});
 });
 
 // update preference to disliked

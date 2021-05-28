@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import EatenItem from './EatenItem';
 
 function EatenList(props) {
+  console.log('Props in EatenList: ', props);
   const [currState, setState] = useState(props.state);
 
   
