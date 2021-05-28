@@ -4,6 +4,7 @@ import SideNavBar from './SideNavBar';
 import CurrentList from './CurrentList';
 import PurchasedList from './PurchasedList';
 import EatenList from './EatenList';
+import LikedList from './LikedList';
 import DisposedList from './DisposedList';
 import SignUpForm from './SignUpForm';
 import Login from './Login';
@@ -17,9 +18,9 @@ function App() {
 				<Route component={CurrentList} exact path='/' />
 				<Route component={PurchasedList} exact path='/purchased' />
 				<Route component={EatenList} exact path='/eaten' />
+				<Route component={LikedList} exact path='/liked' />
 				<Route component={DisposedList} exact path='/disposed' />
 			</Switch>
-
 			<SignUpForm />
 			<Login />
 		</div>

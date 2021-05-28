@@ -1,4 +1,7 @@
+@import "./variables";
+
 * {
+<<<<<<< HEAD:client/stylesheets/style.css
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -20,6 +23,30 @@ h1 {
 body {
 	width: 100%;
 	background-color: #a5a58d;
+=======
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  font-family: Helvetica, sans-serif;
+  color: $tertiary;
+}
+
+h1, h3 {
+  text-align: center;
+  color: $tertiary;
+  margin: 15px;
+}
+
+h1 {
+  font-size: 60px;
+  color: $tertiary;
+  margin: 35px;
+}
+
+body {
+  width: 100%;
+  background-color: $primary;
+>>>>>>> 365e43cfad10a52347e7b6801e4117309eab038a:client/stylesheets/style.scss
 }
 
 .App {
@@ -50,6 +77,7 @@ body {
 }
 
 .link {
+<<<<<<< HEAD:client/stylesheets/style.css
 	text-decoration: none;
 	border: solid black 1px;
 	border-radius: 10px;
@@ -59,6 +87,17 @@ body {
 	color: black;
 	margin: 5px;
 	box-shadow: 5px 5px 10px #222725;
+=======
+  text-decoration: none;
+  border: solid black 1px;
+  border-radius: 10px;
+  padding: 14px 25px;
+  text-align: center;
+  background-color: $secondary;
+  color: black;
+  margin: 5px;
+  box-shadow:5px 5px 10px #222725;
+>>>>>>> 365e43cfad10a52347e7b6801e4117309eab038a:client/stylesheets/style.scss
 }
 
 .link:active {
@@ -74,11 +113,21 @@ body {
 	text-decoration: none;
 }
 
+<<<<<<< HEAD:client/stylesheets/style.css
 .addItemContainer {
 	display: grid;
 	grid-template-columns: 3fr 1fr;
+=======
+.addItemContainer{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  margin: 10px;
+>>>>>>> 365e43cfad10a52347e7b6801e4117309eab038a:client/stylesheets/style.scss
 }
+
+
 .addItemBtn {
+<<<<<<< HEAD:client/stylesheets/style.css
 	background-color: #b7b7a4;
 	border: none;
 	padding: 10px;
@@ -95,6 +144,26 @@ body {
 
 .addItemBtn:hover {
 	background-color: #a4a994;
+=======
+  background-color: $brown;
+  border: none;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow:5px 5px 10px #222725;
+  border-radius: 10px;
+}
+
+.addItemBtn:hover{
+  background-color: $orange;
+  color: black;
+
+>>>>>>> 365e43cfad10a52347e7b6801e4117309eab038a:client/stylesheets/style.scss
 }
 .addItemBtn:active {
 	background-color: #6b705c;
@@ -102,10 +171,18 @@ body {
 }
 
 #addItemText {
+<<<<<<< HEAD:client/stylesheets/style.css
 	margin: 4px 2px;
 	padding: 10px;
 	border-radius: 10px;
 	box-shadow: 5px 5px 10px #222725;
+=======
+  margin: 4px 2px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow:5px 5px 10px #222725;
+  color: black;
+>>>>>>> 365e43cfad10a52347e7b6801e4117309eab038a:client/stylesheets/style.scss
 }
 
 .items {
@@ -113,6 +190,7 @@ body {
 }
 
 .ItemComponent {
+<<<<<<< HEAD:client/stylesheets/style.css
 	border: solid black 1px;
 	background-color: #fefae0;
 	border-radius: 10px;
@@ -147,6 +225,15 @@ body {
 .purchasedListBtnContainer,
 .eatenListBtnContainer {
 	float: right;
+=======
+  border: solid black 1px;
+  background-color: $secondary;
+  border-radius: 10px;
+  padding: 10px 15px;
+  text-align: center;
+  margin: 10px;
+  box-shadow:5px 5px 10px #222725;
+>>>>>>> 365e43cfad10a52347e7b6801e4117309eab038a:client/stylesheets/style.scss
 }
 
 button:active {
@@ -154,8 +241,13 @@ button:active {
 	box-shadow: inset 5px 5px 5px #c1c1c1;
 }
 
+<<<<<<< HEAD:client/stylesheets/style.css
 #likedBtn:focus {
 	background-color: green;
+=======
+.toBuyListBtn:hover, .purchasedListBtn:hover, .eatenListBtn:hover{
+  background-color: $brown;
+>>>>>>> 365e43cfad10a52347e7b6801e4117309eab038a:client/stylesheets/style.scss
 }
 
 #dislikedBtn:focus {

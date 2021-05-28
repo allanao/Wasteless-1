@@ -63,7 +63,8 @@ function CurrentList() {
 					listOfItems: returnedItems,
 					listOfItemNames: returnedItemNames,
 				});
-			});
+			})
+			// .then(console.log("inspecting listOfLikedItems: ", this.state.listOfLikedItems));
 	}, []);
 
 	// const { listOfItemNames } = currState;

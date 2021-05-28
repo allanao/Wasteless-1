@@ -15,6 +15,9 @@ function SideNavBar() {
       <NavLink to="/eaten" className="link" activeClassName="active">
         <p> Eaten</p>
       </NavLink>
+      <NavLink to="/liked" className="link" activeClassName="active">
+        <p> Liked </p>
+      </NavLink>
       <NavLink to="/disposed" className="link" activeClassName="active">
         <p> Disposed</p>
       </NavLink>
