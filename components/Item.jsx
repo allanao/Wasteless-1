@@ -24,6 +24,7 @@ function Item(props) {
 
 	const spanValue = isEditMode ? (
 		<input
+			className="updateText"
 			onChange={handleInputChange}
 			onKeyDown={handleKeyDown}
 			value={input}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Login = () => {
+const Login = (props) => {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 
@@ -23,17 +23,19 @@ const Login = () => {
 		})
 			.then((res) => res.json())
 			.then((data) => console.log('Repsonse form login POST:', data));
+
+		props.onClick();
 	};
 
 	return (
-		<div>
+		<div id="login-container">
 			<div className='login-input'>
 				Username:
-				<input value={username} onChange={handleUserLoginChange} />
+				<input className="login-text" value={username} onChange={handleUserLoginChange} />
 			</div>
 			<div classname='login-input'>
 				Password:
-				<input value={password} onChange={handlePasswordChange} />
+				<input type="password" className="login-text" value={password} onChange={handlePasswordChange} />
 			</div>
 			<button id='login-button' onClick={handleSubmitClick}>
 				Login

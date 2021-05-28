@@ -10,19 +10,6 @@ const model = require('./FoodModel');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// DUMMY ROUTE -- delete later
-app.get('/dummy', (req, res) => {
-	model.User.create({ username: 'ryan', password: 'hello' })
-		.then((res) => {
-			console.log(res);
-			res.send('Created user');
-		})
-		.catch((err) => {
-			console.log('eerror message:', err);
-			res.send('failed');
-		});
-});
-
 // statically serve everything in the build folder on the route '/build'
 app.use('/build', express.static(path.join(__dirname, '../build')));
 // serve index.html on the route '/'

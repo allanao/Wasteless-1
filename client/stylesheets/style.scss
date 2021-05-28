@@ -1,166 +1,227 @@
-@import './variables';
+@import "./variables";
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: Helvetica, sans-serif;
-	color: $tertiary;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Helvetica, sans-serif;
+  color: $tertiary;
 }
 
 h1,
 h3 {
-	text-align: center;
-	color: $tertiary;
-	margin: 15px;
+  text-align: center;
+  color: $tertiary;
+  margin: 15px;
 }
 
 h1 {
-	font-size: 60px;
-	color: $tertiary;
-	margin: 35px;
+  font-size: 60px;
+  color: $tertiary;
+  margin: 35px;
 }
 
 body {
-	width: 100%;
-	background-color: $primary;
+  width: 100%;
+  background-color: $primary;
 }
 
 .App {
-	display: flex;
-	justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 .nav {
-	display: flex;
-	flex-direction: column;
-	width: 25%;
-	border: #6b705c 2px solid;
-	border-radius: 10px;
-	border-color: #f7f7f2;
-	padding: 10px;
-	box-shadow: 5px 5px 10px #222725;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  border: #6b705c 2px solid;
+  border-radius: 10px;
+  border-color: #f7f7f2;
+  padding: 10px;
+  box-shadow: 5px 5px 10px #222725;
 }
 
 .list {
-	display: flex;
-	flex-direction: column;
-	border: #6b705c 2px solid;
-	border-radius: 10px;
-	border-color: #f7f7f2;
-	width: 70%;
-	padding: 10px;
-	box-shadow: 5px 5px 10px #222725;
+  display: flex;
+  flex-direction: column;
+  border: #6b705c 2px solid;
+  border-radius: 10px;
+  border-color: #f7f7f2;
+  width: 70%;
+  padding: 10px;
+  box-shadow: 5px 5px 10px #222725;
 }
 
 .link {
-	text-decoration: none;
-	border: solid black 1px;
-	border-radius: 10px;
-	padding: 14px 25px;
-	text-align: center;
-	background-color: $secondary;
-	color: black;
-	margin: 5px;
-	box-shadow: 5px 5px 10px #222725;
+  text-decoration: none;
+  border: solid black 1px;
+  border-radius: 10px;
+  padding: 14px 25px;
+  text-align: center;
+  background-color: $secondary;
+  color: black;
+  margin: 5px;
+  box-shadow: 5px 5px 10px #222725;
 }
 
 .link:active {
-	background-color: #6b705c;
-	box-shadow: inset 0px 0px 5px #c1c1c1;
+  background-color: #6b705c;
+  box-shadow: inset 0px 0px 5px #c1c1c1;
 }
 
 .link:hover {
-	background-color: #a5a58d;
+  background-color: #a5a58d;
 }
 
 .link:visited {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 .addItemContainer {
-	display: grid;
-	grid-template-columns: 3fr 1fr;
-	margin: 10px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  margin: 10px;
 }
 
 .addItemBtn {
-	background-color: $brown;
-	border: none;
-	padding: 10px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-	margin: 4px 2px;
-	cursor: pointer;
-	border-radius: 10px;
-	box-shadow: 5px 5px 10px #222725;
-	border-radius: 10px;
+  background-color: $brown;
+  border: none;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px #222725;
+  border-radius: 10px;
 }
 
 .addItemBtn:hover {
-	background-color: $orange;
-	color: black;
+  background-color: $orange;
+  color: black;
 }
 .addItemBtn:active {
-	background-color: #6b705c;
-	box-shadow: inset 0px 0px 5px #c1c1c1;
+  background-color: #6b705c;
+  box-shadow: inset 0px 0px 5px #c1c1c1;
 }
 
 #addItemText {
-	margin: 4px 2px;
-	padding: 10px;
-	border-radius: 10px;
-	box-shadow: 5px 5px 10px #222725;
-	color: black;
+  margin: 4px 2px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px #222725;
+  color: black;
 }
 
 .items {
-	font-size: 18px;
+  font-size: 18px;
 }
 
 .ItemComponent {
-	border: solid black 1px;
-	background-color: $secondary;
-	border-radius: 10px;
-	padding: 10px 15px;
-	text-align: center;
-	margin: 10px;
-	box-shadow: 5px 5px 10px #222725;
+  border: solid black 1px;
+  background-color: $secondary;
+  border-radius: 10px;
+  padding: 10px 15px;
+  text-align: center;
+  margin: 10px;
+  box-shadow: 5px 5px 10px #222725;
+}
+
+.updateText {
+  color: black;
 }
 
 button:active {
-	background-color: #6b705c;
-	box-shadow: inset 5px 5px 5px #c1c1c1;
+  background-color: #6b705c;
+  box-shadow: inset 5px 5px 5px #c1c1c1;
+}
+
+.toBuyListBtn,
+.purchasedListBtn,
+.eatenListBtn {
+  background-color: #b7b7a4;
+  border: none;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .toBuyListBtn:hover,
 .purchasedListBtn:hover,
 .eatenListBtn:hover {
-	background-color: $brown;
+  background-color: $green;
 }
 
 #dislikedBtn:focus {
-	background-color: red;
+  background-color: red;
 }
 
-#signup-container {
-	width: 100vw;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+#signup-container, #login-container {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.signup-input {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	width: 25%;
+.signup-input, .login-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 15%;
+  // color: black;
 }
 
-#signup-button {
-	color: white;
-	float: right;
+#signup-button, #login-button {
+  margin: 5px 2px;
+  padding: 10px;
+  color: black;
+  background-color: $orange;
+  border-radius: 5px;
 }
+
+.signup-text, .login-text {
+  color: black;
+  margin: 4px 5px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px #222725;
+}
+
+// #login-container {
+//   width: 100vw;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+// .login-input {
+// 	display: flex;
+// 	justify-content: space-between;
+// 	align-items: center;
+// 	width: 15%;
+// }
+
+// #login-button {
+//   margin: 5px 2px;
+//   padding: 10px;
+//   color: black;
+//   background-color: $orange;
+// }
+
+// .login-text {
+//   color: black;
+//   margin: 4px 5px;
+//   padding: 10px;
+//   border-radius: 10px;
+//   box-shadow: 5px 5px 10px #222725;
+// }
