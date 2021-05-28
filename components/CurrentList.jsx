@@ -20,6 +20,31 @@ function CurrentList() {
 
 	const [currState, setState] = useState(state);
 
+	// for updating the item name
+	const handleItemChange = (id, newItemName) => {
+		// setState listOfItemNames[id] = newItemName;
+		const oldItemName = currState.listOfItemNames[id];
+
+		fetch(`/api/food/${oldItemName}`, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				item: newItemName,
+			}),
+		})
+			.then((res) => res.json())
+			.then((data) => console.log('Response from PUT request: ', data));
+
+		setState((prev) => {
+			const newListOfItemNames = [...prev.listOfItemNames];
+			newListOfItemNames.splice(id, 1, newItemName);
+
+			return { ...prev, listOfItemNames: newListOfItemNames };
+		});
+	};
+
 	useEffect(() => {
 		fetch('/api/')
 			.then((items) => {
@@ -38,7 +63,8 @@ function CurrentList() {
 					listOfItems: returnedItems,
 					listOfItemNames: returnedItemNames,
 				});
-			});
+			})
+			// .then(console.log("inspecting listOfLikedItems: ", this.state.listOfLikedItems));
 	}, []);
 
 	// const { listOfItemNames } = currState;
@@ -81,11 +107,11 @@ function CurrentList() {
 		});
 
 		setState((prevState) => {
-			const itemNamesSlice = prevState.listOfItemNames.slice();
+			const newListOfItemNames = [...prevState.listOfItemNames];
+			const index = newListOfItemNames.indexOf(itemName);
+			newListOfItemNames.splice(index, 1);
 
-			const filtered = itemNamesSlice.filter((value) => value !== itemName);
-
-			return { ...prevState, listOfItemNames: filtered };
+			return { ...prevState, listOfItemNames: newListOfItemNames };
 		});
 	}
 
@@ -143,7 +169,8 @@ function CurrentList() {
 			<Item
 				itemName={currState.listOfItemNames[i]} // <-- user input string
 				key={i}
-				id={i + 1}
+				id={i}
+				onItemChange={handleItemChange}
 				foodId={currState.listOfItemNames[i]} // <-- mongo ID: 1298uvBAH8hjakskr$^%
 				currState={currState}
 				setState={setState}

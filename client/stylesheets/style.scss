@@ -1,25 +1,28 @@
+@import "./variables";
+
 * {
   margin:0;
   padding:0;
   box-sizing: border-box;
   font-family: Helvetica, sans-serif;
-  color: #222725;
+  color: $tertiary;
 }
 
 h1, h3 {
   text-align: center;
-  color: #121113;
-
+  color: $tertiary;
+  margin: 15px;
 }
 
 h1 {
   font-size: 60px;
-  color: #F7F7F2;
+  color: $tertiary;
+  margin: 35px;
 }
 
 body {
   width: 100%;
-  background-color: #a5a58d;
+  background-color: $primary;
 }
 
 .App {
@@ -55,7 +58,7 @@ body {
   border-radius: 10px;
   padding: 14px 25px;
   text-align: center;
-  background-color: #fefae0;
+  background-color: $secondary;
   color: black;
   margin: 5px;
   box-shadow:5px 5px 10px #222725;
@@ -77,9 +80,12 @@ body {
 .addItemContainer{
   display: grid;
   grid-template-columns: 3fr 1fr;
+  margin: 10px;
 }
+
+
 .addItemBtn {
-  background-color: #b7b7a4;
+  background-color: $brown;
   border: none;
   padding: 10px;
   text-align: center;
@@ -94,7 +100,8 @@ body {
 }
 
 .addItemBtn:hover{
-  background-color: #a4a994;
+  background-color: $orange;
+  color: black;
 
 }
 .addItemBtn:active{
@@ -108,6 +115,7 @@ body {
   padding: 10px;
   border-radius: 10px;
   box-shadow:5px 5px 10px #222725;
+  color: black;
 }
 
 
@@ -117,7 +125,7 @@ body {
 
 .ItemComponent {
   border: solid black 1px;
-  background-color: #fefae0;
+  background-color: $secondary;
   border-radius: 10px;
   padding: 10px 15px;
   text-align: center;
@@ -139,7 +147,7 @@ body {
 }
 
 .toBuyListBtn:hover, .purchasedListBtn:hover, .eatenListBtn:hover{
-  background-color: #6b705c;
+  background-color: $brown;
 }
 
 
