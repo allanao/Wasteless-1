@@ -78,7 +78,6 @@ FoodController.deleteFood = (req, res, next) => {
 
 // update item name with user input
 FoodController.updateFoodName = (req, res, next) => {
-<<<<<<< HEAD
 	models.Food.updateOne(
 		{ item: req.params.item },
 		{ $set: { item: req.body.item } }
@@ -102,56 +101,23 @@ FoodController.updateFoodName = (req, res, next) => {
 				},
 			})
 		);
-=======
-  models.Food.updateOne({ item: req.params.item },
-    { $set: { item: req.body.item } })
-    .then((res) => {
-      console.log('Update result: ', res);
-      res.n ? next() : next({
-        log: `Food.updateFoodName: ERROR OVER HERE`,
-        message: {
-          err: 'Error occurred in Food.updateFoodName. Check server logs for more details.',
-        },
-      });
-    })
-    .catch((err) =>
-      next({
-        log: `Food.updateFoodName: ERROR: ${err}`,
-        message: {
-          err: 'Error occurred in Food.updateFoodName. Check server logs for more details.',
-        },
-      })
-    );
->>>>>>> 365e43cfad10a52347e7b6801e4117309eab038a
 };
 
 // update status to purchased
 FoodController.updateFoodStatus = (req, res, next) => {
-<<<<<<< HEAD
 	models.Food.findOneAndUpdate(
 		{ item: req.params.item },
 		{ $set: { status: 'purchased' } }
-	).catch((err) =>
-		next({
-			log: `Food.updateFoodStatus: ERROR: ${err}`,
-			message: {
-				err: 'Error occurred in Food.updateFoodStatus. Check server logs for more details.',
-			},
-		})
-	);
-=======
-  models.Food.findOneAndUpdate({ item: req.params.item }, { $set: { status: 'purchased' } })
-    .then(() => next())
-    .catch(
-      (err) =>
-        next({
-          log: `Food.updateFoodStatus: ERROR: ${err}`,
-          message: {
-            err: 'Error occurred in Food.updateFoodStatus. Check server logs for more details.',
-          },
-        })
-    );
->>>>>>> 365e43cfad10a52347e7b6801e4117309eab038a
+	)
+		.then(() => next())
+		.catch((err) =>
+			next({
+				log: `Food.updateFoodStatus: ERROR: ${err}`,
+				message: {
+					err: 'Error occurred in Food.updateFoodStatus. Check server logs for more details.',
+				},
+			})
+		);
 };
 
 // find food with status of purchased
@@ -173,31 +139,19 @@ FoodController.getPurchasedFood = (req, res, next) => {
 
 // update outcome to eaten
 FoodController.updateEaten = (req, res, next) => {
-<<<<<<< HEAD
-	models.Food.findOneAndUpdate(
+	models.Food.updateOne(
 		{ item: req.params.item },
 		{ $set: { outcome: 'eaten' } }
-	).catch((err) =>
-		next({
-			log: `Food.updateEaten: ERROR: ${err}`,
-			message: {
-				err: 'Error occurred in Food.updateEaten. Check server logs for more details.',
-			},
-		})
-	);
-=======
-  models.Food.updateOne({ item: req.params.item }, { $set: { outcome: 'eaten' } })
-    .then(() => next())
-    .catch(
-      (err) =>
-        next({
-          log: `Food.updateEaten: ERROR: ${err}`,
-          message: {
-            err: 'Error occurred in Food.updateEaten. Check server logs for more details.',
-          },
-        })
-    );
->>>>>>> 365e43cfad10a52347e7b6801e4117309eab038a
+	)
+		.then(() => next())
+		.catch((err) =>
+			next({
+				log: `Food.updateEaten: ERROR: ${err}`,
+				message: {
+					err: 'Error occurred in Food.updateEaten. Check server logs for more details.',
+				},
+			})
+		);
 };
 
 // find food with outcome of eaten
@@ -219,35 +173,23 @@ FoodController.getEatenFood = (req, res, next) => {
 
 // update preference to liked
 FoodController.updateLiked = (req, res, next) => {
-<<<<<<< HEAD
-	models.Food.findOneAndUpdate(
+	models.Food.updateOne(
 		{ item: req.params.item },
 		{ $set: { preference: 'liked' } }
-	).catch((err) =>
-		next({
-			log: `Food.updateLiked: ERROR: ${err}`,
-			message: {
-				err: 'Error occurred in Food.updateLiked. Check server logs for more details.',
-			},
-		})
-	);
-=======
-  models.Food.updateOne({ item: req.params.item }, { $set: { preference: 'liked' } })
-    .then(() => next())
-    .catch((err) =>
-        next({
-          log: `Food.updateLiked: ERROR: ${err}`,
-          message: {
-            err: 'Error occurred in Food.updateLiked. Check server logs for more details.',
-          },
-        })
-    );
->>>>>>> 365e43cfad10a52347e7b6801e4117309eab038a
+	)
+		.then(() => next())
+		.catch((err) =>
+			next({
+				log: `Food.updateLiked: ERROR: ${err}`,
+				message: {
+					err: 'Error occurred in Food.updateLiked. Check server logs for more details.',
+				},
+			})
+		);
 };
 
 // find food with preference of liked
 FoodController.getLikedFood = (req, res, next) => {
-<<<<<<< HEAD
 	models.Food.find({ preference: 'liked' })
 		.then((data) => {
 			res.locals.liked = data;
@@ -261,52 +203,23 @@ FoodController.getLikedFood = (req, res, next) => {
 				},
 			})
 		);
-=======
-  models.Food.find({ preference: "liked" })
-    .then((data) => {
-      res.locals.liked = data;
-      return next();
-    })
-    .catch((err) =>
-      next({
-        log: `Food.getLikedFood: ERROR: ${err}`,
-        message: {
-          err: 'Error occurred in Food.getLikedFood. Check server logs for more details.',
-        },
-      })
-    );
->>>>>>> 365e43cfad10a52347e7b6801e4117309eab038a
 };
 
 // update preference to disliked
 FoodController.updateDisliked = (req, res, next) => {
-<<<<<<< HEAD
 	models.Food.findOneAndUpdate(
 		{ item: req.params.item },
 		{ $set: { preference: 'disliked' } }
-	).catch((err) =>
-		next({
-			log: `Food.updateDisliked: ERROR: ${err}`,
-			message: {
-				err: 'Error occurred in Food.updateDisliked. Check server logs for more details.',
-			},
-		})
-	);
-=======
-  models.Food.findOneAndUpdate(
-    { item: req.params.item },
-    { $set: { preference: 'disliked' } }
-  )
-    .then(() => next())
-    .catch((err) =>
-      next({
-        log: `Food.updateDisliked: ERROR: ${err}`,
-        message: {
-          err: 'Error occurred in Food.updateDisliked. Check server logs for more details.',
-        },
-      })
-    );
->>>>>>> 365e43cfad10a52347e7b6801e4117309eab038a
+	)
+		.then(() => next())
+		.catch((err) =>
+			next({
+				log: `Food.updateDisliked: ERROR: ${err}`,
+				message: {
+					err: 'Error occurred in Food.updateDisliked. Check server logs for more details.',
+				},
+			})
+		);
 };
 
 // find food with outcome of eaten
@@ -328,31 +241,19 @@ FoodController.getDislikedFood = (req, res, next) => {
 
 // update outcome to disposed
 FoodController.updateDisposed = (req, res, next) => {
-<<<<<<< HEAD
 	models.Food.findOneAndUpdate(
 		{ item: req.params.item },
 		{ $set: { outcome: 'disposed' } }
-	).catch((err) =>
-		next({
-			log: `Food.updateDisposed: ERROR: ${err}`,
-			message: {
-				err: 'Error occurred in Food.updateDisposed. Check server logs for more details.',
-			},
-		})
-	);
-=======
-  models.Food.findOneAndUpdate({ item: req.params.item }, { $set: { outcome: 'disposed' } })
-    .then(() => next())
-    .catch(
-      (err) =>
-        next({
-          log: `Food.updateDisposed: ERROR: ${err}`,
-          message: {
-            err: 'Error occurred in Food.updateDisposed. Check server logs for more details.',
-          },
-        })
-    );
->>>>>>> 365e43cfad10a52347e7b6801e4117309eab038a
+	)
+		.then(() => next())
+		.catch((err) =>
+			next({
+				log: `Food.updateDisposed: ERROR: ${err}`,
+				message: {
+					err: 'Error occurred in Food.updateDisposed. Check server logs for more details.',
+				},
+			})
+		);
 };
 
 // find food with outcome of disposed

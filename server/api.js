@@ -45,7 +45,6 @@ router.put(
 	(req, res) => res.status(200).json({ message: 'updated status to purchased' })
 );
 
-
 // PURCHASED LIST
 // get all purchased items
 router.get('/purchased', FoodController.getPurchasedFood, (req, res) => {
@@ -71,11 +70,7 @@ router.put('/food/eaten/liked/:item', FoodController.updateLiked, (req, res) =>
 // LIKED LIST
 // get all liked items
 router.get('/liked', FoodController.getLikedFood, (req, res) => {
-<<<<<<< HEAD
-	res.status(200).json(res.locals.liked);
-=======
-  res.status(200).json({likedItems: res.locals.liked});
->>>>>>> 365e43cfad10a52347e7b6801e4117309eab038a
+	res.status(200).json({ likedItems: res.locals.liked });
 });
 
 // update preference to disliked
