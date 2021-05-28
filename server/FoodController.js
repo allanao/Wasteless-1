@@ -16,7 +16,6 @@ FoodController.getFood = (req, res, next) => {
 			})
 		);
 };
-o;
 
 FoodController.addFood = (req, res, next) => {
 	const { item } = req.body;

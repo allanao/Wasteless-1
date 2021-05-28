@@ -5,20 +5,25 @@ import CurrentList from './CurrentList';
 import PurchasedList from './PurchasedList';
 import EatenList from './EatenList';
 import DisposedList from './DisposedList';
+import SignUpForm from './SignUpForm';
+import Login from './Login';
 
 function App() {
-  return (
-    <div className="App">
-      <SideNavBar />
+	return (
+		<div className='App'>
+			<SideNavBar />
 
-      <Switch>
-        <Route component={CurrentList} exact path="/" />
-        <Route component={PurchasedList} exact path="/purchased" />
-        <Route component={EatenList} exact path="/eaten" />
-        <Route component={DisposedList} exact path="/disposed" />
-      </Switch>
-    </div>
-  );
+			<Switch>
+				<Route component={CurrentList} exact path='/' />
+				<Route component={PurchasedList} exact path='/purchased' />
+				<Route component={EatenList} exact path='/eaten' />
+				<Route component={DisposedList} exact path='/disposed' />
+			</Switch>
+
+			<SignUpForm />
+			<Login />
+		</div>
+	);
 }
 
 export default App;
